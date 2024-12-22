@@ -11,3 +11,5 @@ the executable retrieve the shellcode on your netcat to load it in memory
 ![image](https://github.com/user-attachments/assets/40d31854-b9c6-487a-8e82-45c20a62c1e1)
 
 have fun :)
+
+for educationnal purpose only !!
